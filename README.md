@@ -156,3 +156,69 @@ project/
 │── .env
 │── venv/
 
+
+Flow:
+PDF Upload → Text Extraction → Truncation → AI Analysis → JSON Response
+
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Create Virtual Environment
+
+```bash
+python -m venv venv
+2️⃣ Activate It
+
+Mac / Linux
+
+source venv/bin/activate
+
+
+Windows
+
+venv\Scripts\activate
+
+3️⃣ Install Dependencies
+pip install -r requirements.txt
+
+4️⃣ Setup Environment Variable
+
+Create .env:
+
+GROQ_API_KEY=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
+
+5️⃣ Run Server
+uvicorn main:app --reload
+
+🌐 API Usage
+Endpoint
+POST /analyze
+
+Request (multipart/form-data)
+
+file: PDF file
+
+query: Optional instruction
+
+Curl Example
+curl -X POST http://127.0.0.1:8000/analyze \
+  -H "accept: application/json" \
+  -F "file=@TSLA-Q2-2025-Update.pdf" \
+  -F "query=Analyze this financial document for investment insights"
+
+✅ Sample Response
+{
+  "status": "success",
+  "analysis": {
+    "summary": "...",
+    "performance": "...",
+    "risks": "...",
+    "opportunities": "...",
+    "conclusion": "..."
+  }
+}
+
+
+
