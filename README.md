@@ -187,7 +187,7 @@ pip install -r requirements.txt
 
 Create .env:
 
-GROQ_API_KEY=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
+GROQ_API_KEY=gsk_XXXXXXXXXXXXXXXXXXXX
 
 5️⃣ Run Server
 uvicorn main:app --reload
